@@ -1,0 +1,33 @@
+单例模式：确保一个类只有一个实例，并提供该实例的全局访问点。
+私有的构造方法，私有静态成员变量，共有的静态方法
+饿汉式：在声明静态成员变量时就进行初始化，类加载的时候就初始化实例。
+    private static Singleton instance=new Singleton();
+    线程安全，浪费资源。
+
+懒汉式：只有在调用静态方法获取实例时才进行初始化，延迟初始化
+    线程安全式：
+    同步共有静态方法：线程阻塞时间较长，性能不好
+        public static synchronized Singleton getInstance(){
+            if(instance==null){
+                instance=new Singleton();
+            }
+            return instance;
+        }
+        双重校验锁：加锁对实例化对的代码进行加锁，第一次校验，第二次校验
+        private volatile static Singleton instance;防止初始化时的指令重排序
+        public static Singleton getInstance(){
+            if(instance==null){避免已经实例化后的加锁
+                synchronized(Singleton.class){
+                    if(instance==null){防止还未实例化时多个线程进行实例化
+                        instance=new Singleton();
+                    }
+                }
+            }
+        }
+        静态内部类：Singleton被加载时，静态内部类不会被加载，只有调用共有静态方法时才加载内部类，进行实例化
+          private static class SingletonHolder{
+            private static final Singleton Instance=new Singleton();
+          }
+          public static Singleton getInstance(){
+            return SingletonHolder.Instance; java规范里确实规定了外部类可以访问内部类的private/protected变量
+          }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Factory/ChuangJianXing.iml" filepath="$PROJECT_DIR$/Factory/ChuangJianXing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DesignPattern.iml" filepath="$PROJECT_DIR$/DesignPattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/action/action.iml" filepath="$PROJECT_DIR$/action/action.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jiegouxing/jiegouxing.iml" filepath="$PROJECT_DIR$/jiegouxing/jiegouxing.iml" />
+    </modules>
+  </component>
+</project>
